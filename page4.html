@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From chargers to the IoT stage4</title>
+    <style>
+        /* 全局样式 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: white; /* 网页背景为纯白色 */
+            overflow: hidden; /* 禁止滚动条 */
+        }
+
+        /* 背景图片 a 渐入效果 */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; /* 初始透明度 */
+            background: url('10.jpg') no-repeat center center;
+            background-size: cover; /* 图片全屏覆盖 */
+            animation: fadeInBackground 2s ease-in forwards; /* 渐入动画并停留 */
+        }
+
+        /* 图片 b 和 c 的样式 */
+        .image {
+            position: absolute;
+            opacity: 0; /* 初始透明度 */
+            transition: opacity 2s ease-in; /* 渐入效果 */
+            max-width: 50%; /* 限制图片最大宽度为 100% */
+            max-height: 50%; /* 限制图片最大高度为 100% */
+            object-fit: contain; /* 确保图片按比例显示 */
+            animation-fill-mode: forwards; /* 动画结束后保持最终状态 */
+        }
+
+        /* 图片 b 的位置和动画 */
+        .image-b {
+            top: 60%; /* 居中 */
+            left: 85%;
+            transform: translate(-50%, -50%);
+            animation: fadeInB 2s ease-in forwards; /* 渐入动画并停留 */
+            animation-delay: 2s; /* 延迟动画，背景出现后显示 */
+        }
+
+        /* 图片 c 的位置和动画 */
+        .image-c {
+            top: 30%; /* 居中稍偏下 */
+            left: 85%;
+            transform: translate(-30%, -30%);
+            animation: fadeInC 2s ease-in forwards; /* 渐入动画并停留 */
+            animation-delay: 4s; /* 延迟动画，图片 b 出现后显示 */
+            cursor: pointer; /* 鼠标悬停效果 */
+        }
+
+        /* 背景图片 a 渐入动画 */
+        @keyframes fadeInBackground {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* 图片 b 渐入动画 */
+        @keyframes fadeInB {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* 图片 c 渐入动画 */
+        @keyframes fadeInC {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景图片 a -->
+    <div class="background"></div>
+
+    <!-- 图片 b -->
+    <img src="11.png" alt="Image B" class="image image-b">
+
+    <!-- 图片 c -->
+    <img src="12.png" alt="Image C" class="image image-c" onclick="redirect()">
+
+    <script>
+        // 点击图片 c 跳转到下一页面
+        function redirect() {
+            window.location.href = "page5.html"; // 替换为目标页面 URL
+        }
+    </script>
+</body>
+</html>
